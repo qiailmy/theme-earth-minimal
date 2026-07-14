@@ -1,0 +1,33 @@
+<ul
+  th:fragment="desktop-nav(menu)"
+  th:with="categories = ${categoryFinder.listAsTree()}"
+  class="earth-minimal-desktop-nav hidden h-full items-center"
+>
+  <li>
+    <a href="/" th:classappend="${_templateId == 'index'} ? 'is-active'">首页</a>
+  </li>
+
+  <th:block th:each="wantedName : ${ {'默认分类', '壁纸', '日常', '测试', '医学'} }">
+    <th:block th:each="categoryItem : ${categories}">
+      <li th:if="${categoryItem.spec.displayName == wantedName}">
+        <a
+          th:href="@{${categoryItem.status.permalink}}"
+          th:text="${categoryItem.spec.displayName}"
+          th:classappend="${category != null and category.metadata.name == categoryItem.metadata.name} ? 'is-active'"
+        ></a>
+      </li>
+    </th:block>
+  </th:block>
+
+  <th:block th:if="${menu != null}" th:each="wantedName : ${ {'瞬间', '友联'} }">
+    <th:block th:each="menuItem : ${menu.menuItems}">
+      <li th:if="${menuItem.status.displayName == wantedName}">
+        <a
+          th:href="@{${menuItem.status.href}}"
+          th:text="${menuItem.status.displayName}"
+          th:target="${menuItem.spec.target?.value}"
+        ></a>
+      </li>
+    </th:block>
+  </th:block>
+</ul>

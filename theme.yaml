@@ -1,0 +1,27 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-earth-minimal
+  annotations:
+    "earth-minimal.halo.run/base": "Earth 1.16.1"
+    # 链接管理：https://www.halo.run/store/apps/app-hfbQg
+    # 图库管理：https://www.halo.run/store/apps/app-BmQJW
+    # 瞬间：https://www.halo.run/store/apps/app-SnwWD
+    # Shiki 代码高亮：https://www.halo.run/store/apps/app-kzloktzn
+    # lightgallery.js 灯箱：https://www.halo.run/store/apps/app-OoggD
+    "store.halo.run/recommended-apps": '["app-hfbQg", "app-BmQJW", "app-SnwWD", "app-kzloktzn", "app-OoggD"]'
+spec:
+  displayName: Earth Minimal
+  author:
+    name: 顶呱呱
+    website: https://wuw.wuw.li
+  description: 基于 Earth 1.16.1 的纯白简洁主题，优化阅读体验、移动端渲染和资源加载。
+  logo: https://www.halo.run/logo
+  homepage: https://wuw.wuw.li
+  settingName: "theme-earth-minimal-setting"
+  configMapName: "theme-earth-minimal-configMap"
+  version: 1.1.0
+  requires: ">=2.22.0"
+  license:
+    - name: "GPL-3.0"
+      url: "https://github.com/halo-dev/theme-earth/blob/main/LICENSE"
