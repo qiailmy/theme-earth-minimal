@@ -19,7 +19,7 @@
 
 ## 安装
 
-在 Halo Console 的主题管理中上传 `theme-earth-minimal-1.1.0.zip`，安装并启用。
+在 Halo Console 的主题管理中上传 `theme-earth-minimal-1.1.1.zip`，安装并启用。
 
 ## 插件支持
 

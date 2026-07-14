@@ -25,6 +25,13 @@
 
   let navigating = false;
 
+  function closeMobileMenu() {
+    const header = document.getElementById('header-menu');
+    if (!header) return;
+    const alpineData = window.Alpine?.$data?.(header);
+    if (alpineData && 'open' in alpineData) alpineData.open = false;
+  }
+
   function isInternalLink(link, event) {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
     if (link.target && link.target !== '_self') return false;
@@ -51,6 +58,7 @@
   async function navigate(url, replace = false) {
     if (navigating) return;
     navigating = true;
+    closeMobileMenu();
     document.documentElement.classList.add('is-pjax-loading');
     try {
       const response = await fetch(url.href, { headers: { 'X-Requested-With': 'PJAX' } });
@@ -68,6 +76,7 @@
       else history.pushState({}, '', url.href);
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       await runPageModule(doc, url.href);
+      closeMobileMenu();
       document.dispatchEvent(new CustomEvent('earth:pjax:success', { detail: { url: url.href } }));
     } catch (error) {
       window.location.href = url.href;

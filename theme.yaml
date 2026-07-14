@@ -20,7 +20,7 @@ spec:
   homepage: https://wuw.wuw.li
   settingName: "theme-earth-minimal-setting"
   configMapName: "theme-earth-minimal-configMap"
-  version: 1.1.0
+  version: 1.1.1
   requires: ">=2.22.0"
   license:
     - name: "GPL-3.0"
